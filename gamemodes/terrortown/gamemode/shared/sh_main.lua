@@ -69,10 +69,10 @@ function GM:Move(ply, mv)
 		slowed = true
 	end
 
-	local noLag = {1}
+	local refTbl = {1}
 
-	local mul = hook.Call("TTTPlayerSpeedModifier", GAMEMODE, ply, slowed, mv, noLag) or 1
-	mul = basemul * mul * noLag[1]
+	local mul = hook.Call("TTTPlayerSpeedModifier", GAMEMODE, ply, slowed, mv, refTbl) or 1
+	mul = basemul * mul * refTbl[1]
 
 	if ply.sprintMultiplier and (ply.sprintProgress or 0) > 0 then
 		local sprintMultiplierModifier = {1}
